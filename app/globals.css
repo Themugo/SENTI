@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 150 20% 99%;
+    --foreground: 160 30% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 160 30% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 160 30% 10%;
+    --primary: 160 84% 27%;
+    --primary-foreground: 150 30% 98%;
+    --secondary: 150 20% 96%;
+    --secondary-foreground: 160 30% 15%;
+    --muted: 150 16% 95%;
+    --muted-foreground: 160 12% 42%;
+    --accent: 186 90% 45%;
+    --accent-foreground: 186 80% 8%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 71% 40%;
+    --success-foreground: 142 60% 98%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 38 80% 10%;
+    --border: 160 16% 90%;
+    --input: 160 16% 88%;
+    --ring: 160 84% 27%;
+    --chart-1: 160 84% 35%;
+    --chart-2: 186 90% 45%;
+    --chart-3: 142 71% 45%;
+    --chart-4: 38 92% 55%;
+    --chart-5: 0 72% 55%;
+    --radius: 0.75rem;
+    --sidebar: 150 24% 97%;
+    --sidebar-foreground: 160 30% 12%;
+    --sidebar-accent: 150 20% 92%;
+    --sidebar-accent-foreground: 160 84% 22%;
+    --sidebar-border: 160 16% 88%;
+  }
+
+  .dark {
+    --background: 165 40% 4%;
+    --foreground: 150 20% 96%;
+    --card: 165 35% 6%;
+    --card-foreground: 150 20% 96%;
+    --popover: 165 35% 6%;
+    --popover-foreground: 150 20% 96%;
+    --primary: 160 70% 45%;
+    --primary-foreground: 165 40% 6%;
+    --secondary: 165 25% 12%;
+    --secondary-foreground: 150 20% 96%;
+    --muted: 165 25% 12%;
+    --muted-foreground: 150 12% 60%;
+    --accent: 186 85% 50%;
+    --accent-foreground: 186 80% 6%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --success: 142 65% 50%;
+    --success-foreground: 142 60% 8%;
+    --warning: 38 90% 55%;
+    --warning-foreground: 38 80% 8%;
+    --border: 165 25% 15%;
+    --input: 165 25% 16%;
+    --ring: 160 70% 45%;
+    --chart-1: 160 70% 45%;
+    --chart-2: 186 85% 50%;
+    --chart-3: 142 65% 50%;
+    --chart-4: 38 90% 55%;
+    --chart-5: 0 70% 55%;
+    --sidebar: 165 40% 5%;
+    --sidebar-foreground: 150 20% 94%;
+    --sidebar-accent: 165 25% 12%;
+    --sidebar-accent-foreground: 160 70% 55%;
+    --sidebar-border: 165 25% 14%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1, "ss01" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .glass {
+    background: hsl(var(--card) / 0.6);
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid hsl(var(--border) / 0.5);
+  }
+  .glass-dark {
+    background: hsl(165 40% 6% / 0.7);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsl(var(--border) / 0.4);
+  }
+  .text-gradient-emerald {
+    background: linear-gradient(135deg, hsl(160 84% 30%), hsl(186 90% 45%));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+  .bg-grid {
+    background-image: linear-gradient(hsl(var(--border) / 0.4) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.4) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+  .bg-dot {
+    background-image: radial-gradient(hsl(var(--border)) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .shadow-premium {
+    box-shadow: 0 1px 2px hsl(160 30% 10% / 0.04), 0 4px 12px hsl(160 30% 10% / 0.06),
+      0 0 0 1px hsl(var(--border) / 0.5);
+  }
+  .shadow-premium-lg {
+    box-shadow: 0 2px 4px hsl(160 30% 10% / 0.04), 0 8px 24px hsl(160 30% 10% / 0.08),
+      0 0 0 1px hsl(var(--border) / 0.5);
+  }
+  .shadow-glow-emerald {
+    box-shadow: 0 0 0 1px hsl(160 84% 27% / 0.2), 0 8px 32px hsl(160 84% 27% / 0.15);
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+@layer base {
+  ::selection {
+    background: hsl(160 84% 27% / 0.2);
+    color: hsl(160 84% 20%);
+  }
+  .dark ::selection {
+    background: hsl(160 70% 45% / 0.25);
+    color: hsl(160 70% 60%);
+  }
+}
